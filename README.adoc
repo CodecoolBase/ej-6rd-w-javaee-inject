@@ -1,3 +1,14 @@
 = About
 
 Sample repo to demonstrate how to use simple Depdency Injection via JavaEE annotations in a web-application deployed to WildFly.
+
+The application implements a simple contact list search functionality.
+Contact `sources' and the `contact search logic' are decoupled via interfaces.
+Different implementations of these interfaces could be created and could be injected via the framework without modifying too much code making the design fairly modular.
+
+= Quickstart
+
+* Build the WAR file via Maven -- `mvn war:war`
+* Deploy it to WildFly -- `mvn wildfly:redeploy`
+** This assumes that your WildFly installation uses the username/password combination configured in the `pom.xml`.
+* Then, you should be able to access `localhost:8080/javaee-inject-1.0-SNAPSHOT/rest/contacts?query=Smi` and get back a result.
